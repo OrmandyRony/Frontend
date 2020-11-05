@@ -45,13 +45,14 @@
 		<!-- Navigation -->
 		<div id="navigation">
 			<ul>
-				<li><a class="active" href="inicio.html">PELICULAS</a></li>
-				<li><a  href="resenas.html">RESEÑAS</a></li>
+				<li><a href="inicio.html">CARGAR PELICULAS</a></li>
+				<li><a  href="agregarFuncion.html">AGREGAR FUNCION</a></li>
+				<li><a class="active"  href="resenas.html">RESEÑAS</a></li>
 				<li><a href="funciones.html">FUNCIONES</a></li>
 				<li><a href="usuarios.html">USUARIOS</a></li>
 				<li><a href="registrar">REGISTRAR USUARIO</a></li>
 			    <li><a href="perfil.html">PERFIL</a></li>
-			    <li><a >CERRAR SESION</a></li>
+			    <li><a href="index.html">CERRAR SESION</a></li>
 			</ul>
 		</div>
 		<!-- end Navigation -->
@@ -101,6 +102,7 @@
 	<!-- end Footer -->
 </div>
 <!-- end Shell -->
+
 <script>
            
 	let xhr = new XMLHttpRequest();
@@ -111,7 +113,7 @@
 	  xhr.onreadystatechange = (e) => {
 	  var funciones = JSON.parse(xhr.responseText);
 	  console.log(funciones)
-	  var html = '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"><thead><tr><th>Nombre</th><th>Horario</th><th>Sala</th><th>Disponible</th><th></th></tr></thead>'
+	  var html = '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"><thead><tr><th>Nombre</th><th>Horario</th><th>Sala</th><th>Disponible</th><th>Eliminar</th><th>Editar</th></tr></thead>'
 	  
 	  html += '<tbody>'
 	  for(var i = 0; i < funciones.length; i++)
@@ -122,7 +124,8 @@
 		html += '<td>'+funciones[i].sala +'</td>'
 		html += '<td>'+funciones[i].disponible +'</td>'
 		if(true){
-			html += `<td><a class="btn btn-primary" href="./Sala.html?nombre=${funciones[i].nombre}" role="button">Asistir</a></td>`
+			html += '<td><center><a class="btn btn-danger" id="'+funciones[i].pelicula+'" onclick="eliminarFuncion()" role="button">Eliminar</a></center></td>'
+			html += `<td><center><a class="btn btn-primary" href="./Sala.html?nombre=${funciones[i].pelicula}" role="button">Editar</a></center></td>`
 		}else {
 			html += '<td> No disponible </td>'
 		}
@@ -132,6 +135,27 @@
 	  document.getElementById("tabla").innerHTML = html
 	}
 	
+</script>
+<script>
+	function eliminarFuncion()
+    {
+		alert(document.getElementById().value)
+        /*
+        let xhr = new  XMLHttpRequest();
+        var ruta = 'http://localhost:5000/eliminarFuncion';
+        let json = JSON.stringify({
+            pelicula: document.getElementById("pelicula").value,
+            sala: document.getElementById("sala").value,
+            horario: document.getElementById("horario").value,
+        })
+        document.getElementById("sala").value = "";
+        document.getElementById("horario").value = "";
+        xhr.open("POST", ruta)
+        xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+        xhr.send(json)
+        alert("Funcion Ingresada")
+		*/
+    }
 </script>
 
 </body>

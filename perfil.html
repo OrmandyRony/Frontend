@@ -51,13 +51,14 @@
 		<!-- Navigation -->
 		<div id="navigation">
 			<ul>
-				<li><a class="active" href="inicio.html">PELICULAS</a></li>
-				<li><a  href="resenas.html">RESEÑAS</a></li>
+				<li><a href="inicio.html">CARGAR PELICULAS</a></li>
+				<li><a href="agregarFuncion.html">AGREGAR FUNCION</a></li>
+				<li><a href="resenas.html">RESEÑAS</a></li>
 				<li><a href="funciones.html">FUNCIONES</a></li>
 				<li><a href="usuarios.html">USUARIOS</a></li>
 				<li><a href="registrar">REGISTRAR USUARIO</a></li>
-			    <li><a href="perfil.html">PERFIL</a></li>
-			    <li><a >CERRAR SESION</a></li>
+			    <li><a class="active"  href="perfil.html">PERFIL</a></li>
+			    <li><a href="index.html">CERRAR SESION</a></li>
 			</ul>
 		</div>
 		<!-- end Navigation -->
@@ -101,7 +102,9 @@
 				<label for="tel">Confirmar </label>
 				<input type="password" class="form-control" id="confirmar">
 			</div>
-			  
+			<center>
+				<button type="button" class="btn btn-success" onclick="signup()">Modificar perfil</button>  
+			</center>
 			</form>
 		  
 			</div>
@@ -125,28 +128,63 @@
 	<!-- end Footer -->
 </div>
 <script>
+	function existe_usuario(usuario)
+    {
+        let xhr = new XMLHttpRequest();
+        var ruta = 'http://localhost:5000/obtenerUsuarios';
+        xhr.open('GET', ruta);
+        xhr.send()
+        var existe = true
+        xhr.onreadystatechange = (e) => {
+        var usuarios = JSON.parse(xhr.responseText)
+        for(var i = 0; i < usuarios.length; i++)
+        { 
+          if(usuarios[i].usuario == usuario){
+            existe = false
+            break
+          }
+        }
+      }
+      return existe
+    }
+
+
     function signup()
     {
+		
+
       if (document.getElementById("contrasena").value == document.getElementById("confirmar").value)
       {
-        let xhr = new XMLHttpRequest();
-        var ruta= 'http://localhost:5000/editar';
-        let json = JSON.stringify({
-          nombre: document.getElementById("nombre").value,
-          apellido: document.getElementById("apellido"). value,
-          usuario: document.getElementById("usuario").value,
-          contrasena: document.getElementById("contrasena").value,
-        })
-        xhr.open("POST", ruta)
-        xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
-        xhr.send(json)
-        alert("Su perfil se a modificado con exito")
+		  if (existe_usuario(document.getElementById("usuario")))
+		  {
+			alert
+			let xhr = new XMLHttpRequest();
+			var ruta= 'http://localhost:5000/editar';
+			let json = JSON.stringify({
+			previous_usuario: sessionStorage.getItem("usuario"),
+			nombre: document.getElementById("nombre").value,
+			apellido: document.getElementById("apellido"). value,
+			usuario: document.getElementById("usuario").value,
+			contrasena: document.getElementById("contrasena").value,
+			})
+			
+			xhr.open("POST", ruta)
+			xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+			xhr.send(json)
+		
+			alert("Su perfil se a modificado con exito")
+		  } else
+		  {
+			  alert("El nombre de usuario ya esta registrado")
+		  }
+        
       } else
       {
         alert("Las contraseñas son distintas.")
         document.getElementById("confirmar").value = "";
       }
     } 
+	
   </script>
 <!-- end Shell -->
 </body>

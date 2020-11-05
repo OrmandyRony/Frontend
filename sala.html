@@ -100,37 +100,45 @@
 </div>
 <!-- end Shell -->
 <script>
-           
-	let xhr = new XMLHttpRequest();
-	var ruta = 'http://localhost:5000/obtenerFunciones';
-	
-	  xhr.open('GET', ruta);
-	  xhr.send()
-	  xhr.onreadystatechange = (e) => {
-	  var funciones = JSON.parse(xhr.responseText);
-	  console.log(funciones)
-	  var html = '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"><thead><tr><th>Nombre</th><th>Horario</th><th>Sala</th><th>Disponible</th><th></th></tr></thead>'
-	  
-	  html += '<tbody>'
-	  for(var i = 0; i < funciones.length; i++)
-	  {
-		html += '<tr>'
-		html += '<td>'+funciones[i].pelicula +'</td>'
-		html += '<td>'+funciones[i].horario +'</td>'
-		html += '<td>'+funciones[i].sala +'</td>'
-		html += '<td>'+funciones[i].disponible +'</td>'
-		if(funciones[i].disponible){
-			html += `<td><center><a class="btn btn-primary" href="./Sala.html?pelicula=${funciones[i].pelicula}" role="button">Asistir</a></center></td>`
-		}else {
-			html += '<td> No disponible </td>'
-		}
-		html += '<tr>'
-	  }
-	  html += '</tbody></table>'
-	  document.getElementById("tabla").innerHTML = html
-	}
-	
+                
+    let xhr = new XMLHttpRequest();
+    var ruta = 'http://localhost:5000/obtenerSala?pelicula='+ getParametro("pelicula");
+          
+      alert("pelicula")
+      xhr.open('GET', ruta);
+      xhr.send()
+      xhr.onreadystatechange = (e) => {
+      var asientos = JSON.parse(xhr.responseText);
+      console.log(asientos)
+      var html = "<h1>" + getParametro("pelicula") +"</h1>";
+      html += '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"><thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead>'
+      
+      html += '<tbody>'
+      var fila = 1;
+      for(var i = 0; i < asientos.length; i++)
+      {
+        var x = i+1;
+        if(x==1){
+          html += '<tr><td>'+ fila + '</td>';
+        } else if (i%3==0){
+          fila ++;
+          html += '</tr><tr><td>' + fila + '</td>';
+        }
+        if(asientos.disponible){
+          html+= `<td><button type="button" onclik="apartar(${asientos[i].identificador})" class="btn btn-success">Asistir</button></td>`
+        } else{
+          html+= `<td><button type="button" onclik="apartado()" class="btn btn-secondary">Asistir</button></td>`
+        }
+        if(x == asientos.length){
+          html += '</tr>'
+        }
+      }
+      html += '</tbody></table>'
+      document.getElementById("tabla").innerHTML = html
+    }
+    
 </script>
+
 
 </body>
 </html>

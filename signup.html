@@ -87,13 +87,13 @@
         var ruta = 'http://localhost:5000/obtenerUsuarios';
         xhr.open('GET', ruta);
         xhr.send()
-        var existe = false
+        var existe = true
         xhr.onreadystatechange = (e) => {
         var usuarios = JSON.parse(xhr.responseText)
         for(var i = 0; i < usuarios.length; i++)
         { 
           if(usuarios[i].usuario == usuario){
-            existe = true
+            existe = false
             break
           }
         }
@@ -106,6 +106,7 @@
       {
         if (document.getElementById("contrasena").value == document.getElementById("confirmar").value)
           {   
+            
             let xhr = new XMLHttpRequest();
             var ruta= 'http://localhost:5000/signup';
             let json = JSON.stringify({
@@ -113,7 +114,7 @@
             apellido: document.getElementById("apellido").value,
             usuario: document.getElementById("usuario").value,
             contrasena: document.getElementById("contrasena").value,
-            tipo: "cliente"
+            tipo: "Cliente"
             })
             xhr.open("POST", ruta)
             xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')

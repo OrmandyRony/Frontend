@@ -73,6 +73,7 @@
        
     function login()
     {
+      sessionStorage.setItem('usuario', document.getElementById("usuario").value)
       xhr.open('GET', ruta);
       xhr.send()
       xhr.onreadystatechange = (e) => {
@@ -81,9 +82,17 @@
       for(var i = 0; i < usuarios.length; i++)
       {
         if(usuarios[i].usuario == document.getElementById("usuario").value && usuarios[i].contrasena == document.getElementById("contrasena").value){
-          window.location.href = "./inicio.html"
-          consulta = false
-          break;
+          if(usarios[i].tipo == "Administrador")
+          {
+            window.location.href = "./inicio.html"
+            consulta = false
+            break;
+          } else
+          {
+            window.location.href = "./inicioCliente.html"
+            consulta = false
+          }
+          
         }
       }
       if(consulta)

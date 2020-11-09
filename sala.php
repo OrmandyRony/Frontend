@@ -44,21 +44,62 @@
 	function getParametro(pelicula) {
 	  return (window.location.search.match(new RegExp('[?&]' + pelicula + '=([^&]+)')) || [, null])[1];
 	}
-  
-	function apartarAsientos(id) {
-	  alert(id)
-	  let xhr = new XMLHttpRequest();
-	  var ruta = 'https://proyectocinella.herokuapp.com/apartarAsientos';
-	  let json = JSON.stringify({
-		pelicula: getParametro("pelicula"),
-		identificador: id
-	  })
-  
-	  xhr.open("POST", ruta)
-	  xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
-	  xhr.send(json)
+	
+	function registroAsistentes(usuario){
+		let xhr = new XMLHttpRequest();
+        var ruta = 'https://proyectocinella.herokuapp.com/obtenerRegistro';
+        xhr.open('GET', ruta);
+        xhr.send()
+        var existe = true
+        xhr.onreadystatechange = (e) => {
+        var asistentes = JSON.parse(xhr.responseText)
+        for(var i = 0; i < asistentes.length; i++)
+        { 
+          if(asistentes[i].usuario == usuario){
+            existe = false
+            break
+          }
+        }
+      }
+      return existe
+	}
 
-	  window.location.href = "./funcionesCliente.php"
+	function registrarAsistente(usuario)
+	{
+		let xhr = new XMLHttpRequest();
+	  		var ruta = 'https://proyectocinella.herokuapp.com/registroAsisitente';
+	  		let json = JSON.stringify({
+			usuario: usuario,
+			pelicula: getParametro('pelicula')
+	  	})
+		xhr.open("POST", ruta)
+	  	xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+	  	xhr.send(json)
+	}
+	
+	function apartarAsientos(id) {
+		if(registroAsistentes(sessionStorage.getItem('usuario');))
+		{
+			let xhr = new XMLHttpRequest();
+	  		var ruta = 'https://proyectocinella.herokuapp.com/apartarAsientos';
+	  		let json = JSON.stringify({
+			pelicula: getParametro("pelicula"),
+			identificador: id
+	  	})
+		
+	  	xhr.open("POST", ruta)
+	  	xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+	  	xhr.send(json)
+		registrarAsistente(sessionStorage.getItem('usuario'););
+	  	window.location.href = "./funcionesCliente.php"
+		}	
+		else
+		{
+			alert("Usted ya esta registrado en esta funcion")
+		}
+
+
+	
 	}
   
 	function apartado() {
@@ -177,6 +218,11 @@
       html += '</tbody></table>'
       document.getElementById("tabla").innerHTML = html;
     }
+	function cerrar(){
+		sessionStorage.removeItem("usuario")
+		window.location.href = "./index.php"   
+		
+	}
 
 </script>
 

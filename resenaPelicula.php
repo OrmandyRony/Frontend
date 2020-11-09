@@ -27,6 +27,7 @@
 	<title>CINELLA - HOME</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="css/style2.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="css/style3.css" type="text/css" media="all" />
 	<!--[if IE 6]>
 		<link rel="stylesheet" href="css/ie6.css" type="text/css" media="all" />
 	<![endif]-->

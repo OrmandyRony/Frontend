@@ -38,6 +38,9 @@
 	function getParametro(pelicula) {
 		return (window.location.search.match(new RegExp('[?&]' + pelicula + '=([^&]+)')) || [, null])[1];
 	}
+	function decode_utf8 (s) {
+		return decodeURIComponent (escape (s));
+	}
 
 </script>
 
@@ -169,7 +172,7 @@ window.addEventListener("hashchange", function(event){
 		console.log(resenas)
 		var mensajes= ""
 		for (var i = 0; i < resenas.length; i++) {
-				if (resenas[i].pelicula == getParametro("pelicula")) {
+				if (resenas[i].pelicula == decode_utf8(getParametro("pelicula"))) {
 
 					mensajes += `<div id="left">
 						<form>

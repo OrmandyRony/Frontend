@@ -151,9 +151,8 @@
 		html += '<td>'+funciones[i].sala +'</td>'
 		html += '<td>'+funciones[i].disponible +'</td>'
 		if(funciones[i].disponible){
-			id = pelicula(funciones[i].pelicula)
 		    html += `<td><center><button type="button" onclick="hola(${i})" class="btn btn-danger">Eliminar</button></center></td>`
-			html += `<td><center><a class="btn btn-primary" href="./editarFuncion.php?pelicula=${id}" role="button">Editar</a></center></td>`
+			html += `<td><center><a class="btn btn-primary" href="./editarFuncion.php?pelicula=${funciones[i].sala }" role="button">Editar</a></center></td>`
 		}else {
 			html += '<td> No disponible </td>'
 		}

@@ -19,10 +19,10 @@
 <div class="w3-top">
   <div class="w3-row w3-padding w3-black">
     <div class="w3-col s3">
-      <a href="login.html" class="w3-button w3-block w3-black">INICIO</a>
+      <a href="login.php" class="w3-button w3-block w3-black">INICIO</a>
     </div>
     <div class="w3-col s3">
-      <a href="signup.html" class="w3-button w3-block w3-black">REGISTRATE</a>
+      <a href="signup.php" class="w3-button w3-block w3-black">REGISTRATE</a>
     </div>
   </div>
 </div>

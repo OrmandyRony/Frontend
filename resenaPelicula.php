@@ -158,7 +158,7 @@
 		console.log(resenas)
 		var mensajes= ""
 		for (var i = 0; i < resenas.length; i++) {
-				if (resenas[i].id == getParametro("pelicula"))) {
+				if (resenas[i].pelicula == getParametro("pelicula")) {
 
 					mensajes += `<div id="left">
 						<form>

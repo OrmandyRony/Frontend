@@ -62,8 +62,8 @@
 			<ul>
 
 				<li><a  href="inicio.php">CARGAR PELICULAS</a></li>
-				<li><a class="active" href="agregarFuncion.php">AGREGAR FUNCION</a></li>
-				<li><a   href="resenas.php">RESEÑAS</a></li>
+				<li><a  href="agregarFuncion.php">AGREGAR FUNCION</a></li>
+				<li><a  class="active" href="resenas.php">RESEÑAS</a></li>
 				<li><a href="funciones.php">FUNCIONES</a></li>
 				<li><a href="usuarios.php">USUARIOS</a></li>
 				<li><a href="signupUsuario.php">REGISTRAR USUARIO</a></li>
@@ -126,11 +126,12 @@
 		xhr.onreadystatechange = (e) => {
 			var peliculas = JSON.parse(xhr.responseText);
 			console.log(peliculas)
+			alert(getParametro("pelicula"))
 			var html = ''
 			for (var i = 0; i < peliculas.length; i++) {
 				
 				if (peliculas[i].pelicula == getParametro("pelicula")) {
-					
+					alert("entro")
 					html += '<div class="movie"><div class="movie-image">'
 					html += '<a href="#"><span class="play"><span class="name">' + peliculas[i].pelicula + '</span></span><img src="' + peliculas[i].url_imagen + '" alt="movie" /></a></div><div class="rating">'
 					html += '<p>Puntuacion:' + peliculas[i].puntuacion + '</p><div class=""><div class=""></div></div><span></span></div></div>'

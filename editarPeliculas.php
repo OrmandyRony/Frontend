@@ -33,7 +33,7 @@
 
 
 	function editarPelicula()
-    {
+    { 
         let xhr = new  XMLHttpRequest();
         var ruta = 'https://proyectocinella.herokuapp.com/editarPelicula';
         let json = JSON.stringify({
@@ -48,7 +48,7 @@
         xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
         xhr.send(json)
         alert("Pelicula editada")
-		
+		console.log(json)
     }
 	function cerrar(){
 		sessionStorage.removeItem("usuario")
@@ -133,7 +133,7 @@
                     </div>
 
                     <center>
-                        <button type="button" class="btn btn-success" onclick="editarPelicula()">Editare Pelicula</button>  
+                        <button type="button" class="btn btn-success" onclick="editarPelicula()">Editar Pelicula</button>  
                     </center>                 
                
             </div>

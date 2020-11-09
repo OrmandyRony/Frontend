@@ -78,7 +78,7 @@
 	}
 	
 	function apartarAsientos(id) {
-		if(registroAsistentes(sessionStorage.getItem('usuario');))
+		if(registroAsistentes(sessionStorage.getItem('usuario')))
 		{
 			let xhr = new XMLHttpRequest();
 	  		var ruta = 'https://proyectocinella.herokuapp.com/apartarAsientos';
@@ -90,7 +90,7 @@
 	  	xhr.open("POST", ruta)
 	  	xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
 	  	xhr.send(json)
-		registrarAsistente(sessionStorage.getItem('usuario'););
+		registrarAsistente(sessionStorage.getItem('usuario'));
 	  	window.location.href = "./funcionesCliente.php"
 		}	
 		else

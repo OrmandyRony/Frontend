@@ -35,7 +35,7 @@
 	function editarPelicula()
     {
         let xhr = new  XMLHttpRequest();
-        var ruta = 'http://localhost:5000/editarPelicula';
+        var ruta = 'https://proyectocinella.herokuapp.com/editarPelicula';
         let json = JSON.stringify({
             pelicula: getParametro("pelicula"),
 			new_pelicula: document.getElementById("pelicula").value,

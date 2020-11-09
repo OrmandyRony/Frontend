@@ -30,7 +30,7 @@
 	function eliminarFuncion(id)
     {	
         let xhr = new  XMLHttpRequest();
-        var ruta = 'http://localhost:5000/eliminarFuncion';
+        var ruta = 'https://proyectocinella.herokuapp.com/eliminarFuncion';
 		
         let json = JSON.stringify({
             pelicula: id
@@ -115,7 +115,7 @@
 <script>
            
 	let xhr = new XMLHttpRequest();
-	var ruta = 'http://localhost:5000/obtenerFunciones';
+	var ruta = 'https://proyectocinella.herokuapp.com/obtenerFunciones';
 	
 	  xhr.open('GET', ruta);
 	  xhr.send()
@@ -146,7 +146,7 @@
 	function hola(id)
 	{
 		let xhr = new  XMLHttpRequest();
-        var ruta = 'http://localhost:5000/eliminarFuncion';
+        var ruta = 'https://proyectocinella.herokuapp.com/eliminarFuncion';
 		
         let json = JSON.stringify({
             identificador: id

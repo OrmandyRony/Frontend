@@ -76,7 +76,7 @@
             Licensing information: https://bootstrapmade.com/license/
             Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
           -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+         
         </div>
     </div>
   </div>
@@ -84,7 +84,7 @@
     function existe_usuario(usuario)
     {
         let xhr = new XMLHttpRequest();
-        var ruta = 'http://localhost:5000/obtenerUsuarios';
+        var ruta = 'https://proyectocinella.herokuapp.com/obtenerUsuarios';
         xhr.open('GET', ruta);
         xhr.send()
         var existe = true
@@ -108,7 +108,7 @@
           {   
             
             let xhr = new XMLHttpRequest();
-            var ruta= 'http://localhost:5000/signup';
+            var ruta= 'https://proyectocinella.herokuapp.com/signup';
             let json = JSON.stringify({
             nombre: document.getElementById("nombre").value,
             apellido: document.getElementById("apellido").value,

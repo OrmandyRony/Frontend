@@ -104,7 +104,7 @@
 							var contenido = reader.result;
 							
 							json_peticion = JSON.stringify({ contenido: contenido })
-							let respuesta = fetch('http://localhost:5000/leerArchivo', {
+							let respuesta = fetch('https://proyectocinella.herokuapp.com/leerArchivo', {
 								method: 'POST',
 								body: json_peticion,
 								headers: { 'Content-Type': 'application/json' }
@@ -143,7 +143,7 @@
 		<script>
 
 			let xhr = new XMLHttpRequest();
-			var ruta = 'http://localhost:5000/obtenerPeliculas';
+			var ruta = 'https://proyectocinella.herokuapp.com/obtenerPeliculas';
 			xhr.open('GET', ruta);
 			xhr.send()
 			xhr.onreadystatechange = (e) => {
@@ -165,7 +165,7 @@
 			}
 			function eliminarPelicula(id) {
 				let xhr = new XMLHttpRequest();
-				var ruta = 'http://localhost:5000/eliminarPelicula';
+				var ruta = 'https://proyectocinella.herokuapp.com/eliminarPelicula';
 
 				let json = JSON.stringify({
 					identificador: id

@@ -111,7 +111,7 @@
 <script>
            
     let xhr = new XMLHttpRequest();
-    var ruta = 'http://localhost:5000/obtenerPeliculas';
+    var ruta = 'https://proyectocinella.herokuapp.com/obtenerPeliculas';
     
       xhr.open('GET', ruta);
       xhr.send()
@@ -136,7 +136,7 @@
     {
         
         let xhr = new  XMLHttpRequest();
-        var ruta = 'http://localhost:5000/agregarFuncion';
+        var ruta = 'https://proyectocinella.herokuapp.com/agregarFuncion';
         let json = JSON.stringify({
             pelicula: document.getElementById("pelicula").value,
             sala: document.getElementById("sala").value,

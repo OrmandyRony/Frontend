@@ -131,7 +131,7 @@
 	function existe_usuario(usuario)
     {
         let xhr = new XMLHttpRequest();
-        var ruta = 'http://localhost:5000/obtenerUsuarios';
+        var ruta = 'https://proyectocinella.herokuapp.com/obtenerUsuarios';
         xhr.open('GET', ruta);
         xhr.send()
         var existe = true
@@ -159,7 +159,7 @@
 		  {
 			alert
 			let xhr = new XMLHttpRequest();
-			var ruta= 'http://localhost:5000/editar';
+			var ruta= 'https://proyectocinella.herokuapp.com/editar';
 			let json = JSON.stringify({
 			previous_usuario: sessionStorage.getItem("usuario"),
 			nombre: document.getElementById("nombre").value,

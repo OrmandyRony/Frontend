@@ -69,7 +69,7 @@
 
   <script>
     let xhr = new XMLHttpRequest();
-    var ruta = 'http://localhost:5000/obtenerUsuarios';
+    var ruta = 'https://proyectocinella.herokuapp.com/obtenerUsuarios';
        
     function login()
     {

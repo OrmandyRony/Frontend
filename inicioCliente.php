@@ -87,14 +87,14 @@
 			<a href="#">ADVERTISE</a> <span>|</span>
 			<a href="#">CONTACT </a>
 		</p>
-		<p> &copy; 2009 Movie Hunter, LLC. All Rights Reserved.  Designed by <a href="http://chocotemplates.com" target="_blank" title="The Sweetest CSS Templates WorldWide">ChocoTemplates.com</a></p>
+		<p> &copy; 2009 Movie Hunter, LLC. All Rights Reserved.  Designed by <a href="" target="_blank" title="The Sweetest CSS Templates WorldWide">ChocoTemplates.com</a></p>
 	</div>
 	<!-- end Footer -->
 </div>
 <!-- end Shell -->
 <script>
 	let xhr = new XMLHttpRequest();
-	var ruta = 'http://localhost:5000/obtenerPeliculas';
+	var ruta = 'https://proyectocinella.herokuapp.com/obtenerPeliculas';
 	
 	  xhr.open('GET', ruta);
 	  xhr.send()

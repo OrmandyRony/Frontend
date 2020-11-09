@@ -100,7 +100,7 @@
 <!-- end Shell -->
 <script>
 		let xhr = new XMLHttpRequest();
-		var ruta = 'http://localhost:5000/obtenerFunciones';
+		var ruta = 'https://proyectocinella.herokuapp.com/obtenerFunciones';
 
 		xhr.open('GET', ruta);
 		xhr.send()

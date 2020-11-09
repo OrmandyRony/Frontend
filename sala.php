@@ -48,7 +48,7 @@
 	function apartarAsientos(id) {
 	  alert(id)
 	  let xhr = new XMLHttpRequest();
-	  var ruta = 'http://localhost:5000/apartarAsientos';
+	  var ruta = 'https://proyectocinella.herokuapp.com/apartarAsientos';
 	  let json = JSON.stringify({
 		pelicula: getParametro("pelicula"),
 		identificador: id
@@ -146,7 +146,7 @@
 <script>
 
     let xhr = new XMLHttpRequest();
-    var ruta = 'http://localhost:5000/obtenerSala?pelicula=' + getParametro("pelicula");
+    var ruta = 'https://proyectocinella.herokuapp.com/obtenerSala?pelicula=' + getParametro("pelicula");
     xhr.open('GET', ruta);
     xhr.send()
     xhr.onreadystatechange = (e) => {

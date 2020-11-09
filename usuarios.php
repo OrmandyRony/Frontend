@@ -106,7 +106,7 @@
 <script>
            
 	let xhr = new XMLHttpRequest();
-	var ruta = 'http://localhost:5000/obtenerUsuarios';
+	var ruta = 'https://proyectocinella.herokuapp.com/obtenerUsuarios';
 	
 	  xhr.open('GET', ruta);
 	  xhr.send()
@@ -131,22 +131,6 @@
 <script>
 	function eliminarFuncion()
     {
-		alert(document.getElementById().value)
-        /*
-        let xhr = new  XMLHttpRequest();
-        var ruta = 'http://localhost:5000/eliminarFuncion';
-        let json = JSON.stringify({
-            pelicula: document.getElementById("pelicula").value,
-            sala: document.getElementById("sala").value,
-            horario: document.getElementById("horario").value,
-        })
-        document.getElementById("sala").value = "";
-        document.getElementById("horario").value = "";
-        xhr.open("POST", ruta)
-        xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
-        xhr.send(json)
-        alert("Funcion Ingresada")
-		*/
     }
 </script>
 

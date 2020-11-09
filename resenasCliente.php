@@ -119,7 +119,7 @@
 	mensajes();
 	function metodo(){
 		let xhr = new XMLHttpRequest();
-		var ruta = 'http://localhost:5000/obtenerPeliculas';	
+		var ruta = 'https://proyectocinella.herokuapp.com/obtenerPeliculas';	
 		xhr.open('GET', ruta);
 		xhr.send()
 		xhr.onreadystatechange = (e) => {
@@ -147,7 +147,7 @@
 
 	function mensajes(){
 		let xhr = new XMLHttpRequest();
-		var ruta = 'http://localhost:5000/obtenerResena';
+		var ruta = 'https://proyectocinella.herokuapp.com/obtenerResena';
 		xhr.open('GET', ruta);
 		xhr.send()
 		xhr.onreadystatechange = (e) => {
@@ -224,7 +224,7 @@
 	<script>
 		function ingresarResena() {
 			let xhr = new XMLHttpRequest();
-			var ruta = 'http://localhost:5000/ingresarResena';
+			var ruta = 'https://proyectocinella.herokuapp.com/ingresarResena';
 			let json = JSON.stringify({
 				nombre: sessionStorage.getItem("usuario"),
 				comentario: document.getElementById("resena").value,

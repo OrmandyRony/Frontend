@@ -122,7 +122,7 @@
 <script>
            
     let xhr = new XMLHttpRequest();
-    var ruta = 'http://localhost:5000/obtenerPeliculas';
+    var ruta = 'https://proyectocinella.herokuapp.com/obtenerPeliculas';
     
       xhr.open('GET', ruta);
       xhr.send()
@@ -146,7 +146,7 @@
     function editarFuncion()
     {  
         let xhr = new XMLHttpRequest();
-			var ruta= 'http://localhost:5000/editarFuncion';
+			var ruta= 'https://proyectocinella.herokuapp.com/editarFuncion';
 			let json = JSON.stringify({
             pelicula: getParametro("pelicula"),
 			new_pelicula: document.getElementById("new_pelicula").value,

@@ -108,7 +108,7 @@
 <!-- end Shell -->
 <script>
 	let xhr = new XMLHttpRequest();
-	var ruta = 'http://localhost:5000/obtenerPeliculas';
+	var ruta = 'https://proyectocinella.herokuapp.com/obtenerPeliculas';
 	
 	  xhr.open('GET', ruta);
 	  xhr.send()

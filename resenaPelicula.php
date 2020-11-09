@@ -126,11 +126,8 @@
 		xhr.send()
 		xhr.onreadystatechange = (e) => {
 			var peliculas = JSON.parse(xhr.responseText);
-			console.log(peliculas)
-			alert(getParametro("pelicula"))
 			var html = ''
 			for (var i = 0; i < peliculas.length; i++) {
-				alert(peliculas[i].id )
 				if (peliculas[i].id == getParametro("pelicula")) {
 					alert("entro")
 					html += '<div class="movie"><div class="movie-image">'
@@ -158,7 +155,7 @@
 		console.log(resenas)
 		var mensajes= ""
 		for (var i = 0; i < resenas.length; i++) {
-				if (resenas[i].pelicula == getParametro("pelicula")) {
+				if (resenas[i].id == getParametro("pelicula")) {
 
 					mensajes += `<div id="left">
 						<form>

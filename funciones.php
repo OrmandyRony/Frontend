@@ -114,7 +114,24 @@
 <!-- end Shell -->
 
 <script>
-           
+    function pelicula(nombre)
+	{
+		let xhr = new XMLHttpRequest();
+			var ruta = 'https://proyectocinella.herokuapp.com/obtenerPeliculas';
+			xhr.open('GET', ruta);
+			xhr.send()
+			xhr.onreadystatechange = (e) => {
+				var peliculas = JSON.parse(xhr.responseText);
+				
+				for (var i = 0; i < peliculas.length; i++) {
+					if(nombre = pelicula[i].pelicula)
+					{
+						return  peliculas[i].id
+					}	
+				}
+			
+			}
+	}
 	let xhr = new XMLHttpRequest();
 	var ruta = 'https://proyectocinella.herokuapp.com/obtenerFunciones';
 	
@@ -134,8 +151,9 @@
 		html += '<td>'+funciones[i].sala +'</td>'
 		html += '<td>'+funciones[i].disponible +'</td>'
 		if(funciones[i].disponible){
+			id = pelicula(funciones[i].pelicula)
 		    html += `<td><center><button type="button" onclick="hola(${i})" class="btn btn-danger">Eliminar</button></center></td>`
-			html += `<td><center><a class="btn btn-primary" href="./editarFuncion.php?pelicula=${funciones[i].id}" role="button">Editar</a></center></td>`
+			html += `<td><center><a class="btn btn-primary" href="./editarFuncion.php?pelicula=${id}" role="button">Editar</a></center></td>`
 		}else {
 			html += '<td> No disponible </td>'
 		}

@@ -60,9 +60,9 @@
 			<ul>
 
 				<li><a  href="inicio.php">CARGAR PELICULAS</a></li>
-				<li><a class="active" href="agregarFuncion.php">AGREGAR FUNCION</a></li>
+				<li><a  href="agregarFuncion.php">AGREGAR FUNCION</a></li>
 				<li><a   href="resenas.php">RESEÑAS</a></li>
-				<li><a href="funciones.php">FUNCIONES</a></li>
+				<li><a class="active" href="funciones.php">FUNCIONES</a></li>
 				<li><a href="usuarios.php">USUARIOS</a></li>
 				<li><a href="signupUsuario.php">REGISTRAR USUARIO</a></li>
 			    <li><a href="perfil.php">PERFIL</a></li>

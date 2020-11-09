@@ -41,11 +41,7 @@
 
 
 </script>
-<script>
-function replaceURLWithHTMLLinks(e){return e.replace(/(\(.*?)?\b((?:https?|ftp|file):\/\/[-a-z0-9+&@#\/%?=~_()|!:,.;]*[-a-z0-9+&@#\/%=~_()|])/gi,function(e,r,n){var t="";r=r||"";for(var a=/\(/g;a.exec(r);){var l;(l=/(.*)(\.\).*)/.exec(n)||/(.*)(\).*)/.exec(n))&&(n=l[1],t=l[2]+t)}return r+"<a href='"+n+"' target='_blank' rel='nofollow noopener'>"+n+"</a>"+t})}
-document.addEventListener("DOMContentLoaded",function(event){
-var elm=document.getElementById("text2url");elm.innerHTML=replaceURLWithHTMLLinks(elm.innerHTML);});
-</script>
+
 <body>
 	<!-- Shell -->
 	<div id="shell">
@@ -131,11 +127,11 @@ var elm=document.getElementById("text2url");elm.innerHTML=replaceURLWithHTMLLink
 		xhr.onreadystatechange = (e) => {
 			var peliculas = JSON.parse(xhr.responseText);
 			console.log(peliculas)
-			alert(replaceURLWithHTMLLinks(getParametro("pelicula")))
+			alert(getParametro("pelicula"))
 			var html = ''
 			for (var i = 0; i < peliculas.length; i++) {
-				
-				if (peliculas[i].pelicula == getParametro("pelicula")) {
+				alert(peliculas[i].id )
+				if (peliculas[i].id == getParametro("pelicula")) {
 					alert("entro")
 					html += '<div class="movie"><div class="movie-image">'
 					html += '<a href="#"><span class="play"><span class="name">' + peliculas[i].id + '</span></span><img src="' + peliculas[i].url_imagen + '" alt="movie" /></a></div><div class="rating">'
@@ -162,7 +158,7 @@ var elm=document.getElementById("text2url");elm.innerHTML=replaceURLWithHTMLLink
 		console.log(resenas)
 		var mensajes= ""
 		for (var i = 0; i < resenas.length; i++) {
-				if (resenas[i].pelicula == decode_utf8(getParametro("pelicula"))) {
+				if (resenas[i].id == getParametro("pelicula"))) {
 
 					mensajes += `<div id="left">
 						<form>

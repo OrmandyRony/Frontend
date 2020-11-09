@@ -116,6 +116,18 @@
 					</div>
 
 <script>
+//Reemplazar al cargar la página
+if (location.hash)
+    location.replace(location.hash.replace(/\+|%20/g, " "));
+
+//Asignar evento cuando se cambie el hash
+window.addEventListener("hashchange", function(event){
+    if (location.hash)
+        location.replace(location.hash.replace(/\+|%20/g, " "));
+
+    //Descomentar para mostrar en consola cuando se dispara
+    //console.debug("Se disparó el evento hashchange: ", event.oldURL, "-->", event.newURL);
+});
 	metodo();
 	mensajes();
 	function metodo(){

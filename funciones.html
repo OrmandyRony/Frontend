@@ -26,6 +26,24 @@
 	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 	<script type="text/javascript" src="js/jquery-func.js"></script>
 </head>
+<script>
+	function eliminarFuncion(id)
+    {	
+        let xhr = new  XMLHttpRequest();
+        var ruta = 'http://localhost:5000/eliminarFuncion';
+		
+        let json = JSON.stringify({
+            pelicula: id
+        })
+		xhr.open("POST", ruta)
+        xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+        xhr.send(json)
+
+        alert("Funcion eliminada")
+    }
+	
+</script>
+
 <body>
 <!-- Shell -->
 <div id="shell">
@@ -123,9 +141,9 @@
 		html += '<td>'+funciones[i].horario +'</td>'
 		html += '<td>'+funciones[i].sala +'</td>'
 		html += '<td>'+funciones[i].disponible +'</td>'
-		if(true){
-			html += '<td><center><a class="btn btn-danger" id="'+funciones[i].pelicula+'" onclick="eliminarFuncion()" role="button">Eliminar</a></center></td>'
-			html += `<td><center><a class="btn btn-primary" href="./Sala.html?nombre=${funciones[i].pelicula}" role="button">Editar</a></center></td>`
+		if(funciones[i].disponible){
+		    html += `<td><center><button type="button" onclick="hola(${i})" class="btn btn-danger">Eliminar</button></center></td>`
+			html += `<td><center><a class="btn btn-primary" href="./editarFuncion.html?pelicula=${funciones[i].pelicula}" role="button">Editar</a></center></td>`
 		}else {
 			html += '<td> No disponible </td>'
 		}
@@ -134,28 +152,21 @@
 	  html += '</tbody></table>'
 	  document.getElementById("tabla").innerHTML = html
 	}
-	
-</script>
-<script>
-	function eliminarFuncion()
-    {
-		alert(document.getElementById().value)
-        /*
-        let xhr = new  XMLHttpRequest();
+	function hola(id)
+	{
+		let xhr = new  XMLHttpRequest();
         var ruta = 'http://localhost:5000/eliminarFuncion';
+		
         let json = JSON.stringify({
-            pelicula: document.getElementById("pelicula").value,
-            sala: document.getElementById("sala").value,
-            horario: document.getElementById("horario").value,
+            identificador: id
         })
-        document.getElementById("sala").value = "";
-        document.getElementById("horario").value = "";
-        xhr.open("POST", ruta)
+		xhr.open("POST", ruta)
         xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
         xhr.send(json)
-        alert("Funcion Ingresada")
-		*/
-    }
+
+        alert("Funcion eliminada")
+		window.location.href = "./funciones.html"   
+	}
 </script>
 
 </body>

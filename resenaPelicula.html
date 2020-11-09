@@ -58,14 +58,17 @@
 
 			<!-- Navigation -->
 			<div id="navigation">
-				<ul>
-					<li><a href="inicioCliente.html">CARTELERA</a></li>
-					<li><a class="active" href="resenasCliente.html">RESEÑAS</a></li>
-					<li><a href="funcionesCliente.html">FUNCIONES</a></li>
-					<li><a href="perfilCliente.html">PERFIL</a></li>
-					<li><a  onclick="cerrar()">CERRAR SESION</a></li>
-				</ul>
-			</div>
+                <ul>
+                    <li><a href="inicio.html">CARGAR PELICULAS</a></li>
+                    <li><a href="agregarFuncion.html">AGREGAR FUNCION</a></li>
+                    <li><a href="resenas.html">RESEÑAS</a></li>
+                    <li><a href="funciones.html">FUNCIONES</a></li>
+                    <li><a href="usuarios.html">USUARIOS</a></li>
+                    <li><a href="registrar">REGISTRAR USUARIO</a></li>
+                    <li><a class="active"  href="perfil.html">PERFIL</a></li>
+                    <li><a href="index.html">CERRAR SESION</a></li>
+                </ul>
+            </div>
 			<!-- end Navigation -->
 
 			<!-- Sub-menu -->
@@ -107,13 +110,10 @@
 				</div>
 				<!-- end Box -->
 					<div id="mensajes">
+<h2></h2>
 					</div>
 
 <script>
-	if(sessionStorage.getItem("usuario") == null)
-	{
-		window.location.href = "./index.html"  
-	}
 	metodo();
 	mensajes();
 	function metodo(){
@@ -167,12 +167,6 @@
 			document.getElementById("mensajes").innerHTML = mensajes
 		}
 	}
-
-	function cerrar(){
-		sessionStorage.removeItem("usuario")
-		window.location.href = "./index.html"   
-
-	}
 		
 			
 			
@@ -183,21 +177,7 @@
 				<div class="cuadro">
 
 				</div>
-				<div id="left">
-					<form>
-						<div class="inputs">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text">Agregar reseña</span>
-								</div>
-								<textarea class="form-control" id="resena" aria-label="With textarea"></textarea>
-							</div>
-						</div>
-						<div class="inputs">
-							<button type="button" onclick="ingresarResena()" class="btn btn-warning">Enviar</button>
-						</div>
-					</form>
-				</div>
+				
 
 				<!-- end Reseñas-->
 			</div>
@@ -220,22 +200,6 @@
 		<!-- end Footer -->
 	</div>
 	<!-- end Shell -->
-	<script>
-		function ingresarResena() {
-			let xhr = new XMLHttpRequest();
-			var ruta = 'http://localhost:5000/ingresarResena';
-			let json = JSON.stringify({
-				nombre: sessionStorage.getItem("usuario"),
-				comentario: document.getElementById("resena").value,
-				pelicula: getParametro("pelicula")
-			})
-			xhr.open("POST", ruta)
-			xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
-			xhr.send(json)
-			document.getElementById("resena").value = "";
-		
-		}
-	</script>
 </body>
 
 

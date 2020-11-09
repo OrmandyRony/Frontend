@@ -100,36 +100,33 @@
 </div>
 <!-- end Shell -->
 <script>
-           
-	let xhr = new XMLHttpRequest();
-	var ruta = 'http://localhost:5000/obtenerFunciones';
-	
-	  xhr.open('GET', ruta);
-	  xhr.send()
-	  xhr.onreadystatechange = (e) => {
-	  var funciones = JSON.parse(xhr.responseText);
-	  console.log(funciones)
-	  var html = '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"><thead><tr><th>Nombre</th><th>Horario</th><th>Sala</th><th>Disponible</th><th></th></tr></thead>'
-	  
-	  html += '<tbody>'
-	  for(var i = 0; i < funciones.length; i++)
-	  {
-		html += '<tr>'
-		html += '<td>'+funciones[i].pelicula +'</td>'
-		html += '<td>'+funciones[i].horario +'</td>'
-		html += '<td>'+funciones[i].sala +'</td>'
-		html += '<td>'+funciones[i].disponible +'</td>'
-		if(funciones[i].disponible){
-			html += `<td><center><a class="btn btn-primary" href="./Sala.html?pelicula=${funciones[i].pelicula}" role="button">Asistir</a></center></td>`
-		}else {
-			html += '<td> No disponible </td>'
+		let xhr = new XMLHttpRequest();
+		var ruta = 'http://localhost:5000/obtenerFunciones';
+
+		xhr.open('GET', ruta);
+		xhr.send()
+		xhr.onreadystatechange = (e) => {
+			var funciones = JSON.parse(xhr.responseText);
+			console.log(funciones)
+			var html = '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"><thead><tr><th>Nombre</th><th>Horario</th><th>Disponible</th></tr></thead>'
+
+			html += '<tbody>'
+			for (var i = 0; i < funciones.length; i++) {
+				html += '<tr>'
+				html += '<td>' + funciones[i].pelicula + '</td>'
+				html += '<td>' + funciones[i].horario + '</td>'
+				html += '<td>' + funciones[i].disponible + '</td>'
+				if (funciones[i].disponible) {
+					html += `<td><a class="btn btn-primary" href="./sala.html?pelicula=${funciones[i].pelicula}" role="button">Asistir</a></td>`
+				} else {
+					html += '<td> No disponible </td>'
+				}
+				html += '<tr>'
+			}
+			html += '</tbody></table>'
+
+			document.getElementById("tabla").innerHTML = html
 		}
-		html += '<tr>'
-	  }
-	  html += '</tbody></table>'
-	  document.getElementById("tabla").innerHTML = html
-	}
-	
 </script>
 
 </body>

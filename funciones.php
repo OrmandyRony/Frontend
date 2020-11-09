@@ -135,7 +135,7 @@
 		html += '<td>'+funciones[i].disponible +'</td>'
 		if(funciones[i].disponible){
 		    html += `<td><center><button type="button" onclick="hola(${i})" class="btn btn-danger">Eliminar</button></center></td>`
-			html += `<td><center><a class="btn btn-primary" href="./editarFuncion.php?pelicula=${funciones[i].pelicula}" role="button">Editar</a></center></td>`
+			html += `<td><center><a class="btn btn-primary" href="./editarFuncion.php?pelicula=${funciones[i].id}" role="button">Editar</a></center></td>`
 		}else {
 			html += '<td> No disponible </td>'
 		}

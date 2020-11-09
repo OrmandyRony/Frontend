@@ -148,7 +148,7 @@
         let xhr = new XMLHttpRequest();
 			var ruta= 'https://proyectocinella.herokuapp.com/editarFuncion';
 			let json = JSON.stringify({
-            pelicula: getParametro("pelicula"),
+            id: getParametro("pelicula"),
 			new_pelicula: document.getElementById("new_pelicula").value,
             new_sala: document.getElementById("sala").value,
             new_horario: document.getElementById("horario").value

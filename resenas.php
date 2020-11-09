@@ -117,7 +117,7 @@
 	  for(var i = 0; i < peliculas.length; i++)
 	  {
 		html += '<div class="movie"><div class="movie-image">'
-		html += '<a href="./resenaPelicula.php?pelicula='+peliculas[i].pelicula+'"><span class="play"><span class="name">'+peliculas[i].pelicula+'</span></span><img src="'+peliculas[i].url_imagen+'" alt="movie" /></a></div><div class="rating">'
+		html += '<a href="./resenaPelicula.php?pelicula='+peliculas[i].id+'"><span class="play"><span class="name">'+peliculas[i].pelicula+'</span></span><img src="'+peliculas[i].url_imagen+'" alt="movie" /></a></div><div class="rating">'
 		html += '<p>Puntuacion:'+peliculas[i].puntuacion+'</p><div class=""><div class=""></div></div><span class="comments">12</span></div></div>'
 	  }
 	  

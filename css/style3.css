@@ -1,0 +1,31 @@
+ 
+  form {
+    border: 2px solid #d69544; /* bronze */
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 5px;
+    font-size: 120%;
+  }
+  label {
+    font-size: 110%;
+    padding: 5px;
+    text-align: left;
+    margin: 5px;
+  }
+  .inputs {
+    border-radius: 5px;
+    padding: 5px;
+    text-align: left;
+    margin: 5px;
+  }
+  
+  #left {
+    width:70%;
+    display: inline-block;
+  }
+  #right {
+    width: 48%;
+    float: right;
+    display: inline-block;
+    height: 100%;
+  }

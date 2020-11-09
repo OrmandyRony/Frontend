@@ -59,15 +59,6 @@
 		<!-- Header -->
 		<div id="header">
 			<h1> CINELLA </h1>
-			<div class="social">
-				<span>FOLLOW US ON:</span>
-				<ul>
-					<li><a class="twitter" href="#">twitter</a></li>
-					<li><a class="facebook" href="#">facebook</a></li>
-					<li><a class="vimeo" href="#">vimeo</a></li>
-					<li><a class="rss" href="#">rss</a></li>
-				</ul>
-			</div>
 
 			<!-- Navigation -->
 			<div id="navigation">
@@ -85,22 +76,7 @@
 			<!-- end Navigation -->
 
 			<!-- Sub-menu -->
-			<div id="sub-navigation">
-				<ul>
-					<li><a href="#">SHOW ALL</a></li>
-					<li><a href="#">LATEST TRAILERS</a></li>
-					<li><a href="#">TOP RATED</a></li>
-					<li><a href="#">MOST COMMENTED</a></li>
-				</ul>
-				<div id="search">
-					<form action="home_submit" method="get" accept-charset="utf-8">
-						<label for="search-field">SEARCH</label>
-						<input type="text" name="search field" value="Enter search here" id="search-field"
-							title="Enter search here" class="blink search-field" />
-						<input type="submit" value="GO!" class="search-button" />
-					</form>
-				</div>
-			</div>
+			
 			<!-- end Sub-Menu -->
 
 		</div>
@@ -116,17 +92,17 @@
 				<div class="box">
 					<input class="btn btn-primary" type="file" accept="text/plain" onchange="abrirArchivo(event)"
 						class="btn btn-warning" value="Cargar Peliculas">
-					<div id="texto"></div>
+					
 				</div>
 				<!-- end Box -->
-				<a id="descargar" onclick="generar()">descargar</a>
+				
 				<script>
 					var abrirArchivo = function (event) {
 						var archivo = event.target;
 						var reader = new FileReader();
 						reader.onload = function () {
 							var contenido = reader.result;
-							document.getElementById("texto").innerHTML = contenido;
+							
 							json_peticion = JSON.stringify({ contenido: contenido })
 							let respuesta = fetch('http://localhost:5000/leerArchivo', {
 								method: 'POST',
@@ -137,14 +113,6 @@
 						};
 						reader.readAsText(archivo.files[0])
 					};
-
-					function pdf() {
-						var contenidoDeArchivo = "Hola Mundo!";
-						elem.download = "archivo.txt";
-						elem.href = "data:application/octet-stream,"
-							+ encodeURIComponent(contenidoDeArchivo);
-
-					}
 				</script>
 				<div class="card shadow mb-4">
 					<div class="card-header py-3">
@@ -163,18 +131,11 @@
 			<!-- Footer -->
 			<div id="footer">
 				<p>
-					<a href="#">HOME</a> <span>|</span>
-					<a href="#">NEWS</a> <span>|</span>
-					<a href="#">IN THEATERS</a> <span>|</span>
-					<a href="#">COMING SOON </a> <span>|</span>
-					<a href="#">LATERS TRAILERS</a> <span>|</span>
-					<a href="#">TOP RATED TRAILERS</a> <span>|</span>
-					<a href="#">MOST COMMENTED TRAILERS</a> <span>|</span>
-					<a href="#">ADVERTISE</a> <span>|</span>
-					<a href="#">CONTACT </a>
+					<a href="#">CARTELERA</a> <span>|</span>
+					<a href="#">RESEÑAS</a> <span>|</span>
+					<a href="#">FUNCIONES</a> <span>|</span>
 				</p>
-				<p> &copy; 2009 Movie Hunter, LLC. All Rights Reserved. Designed by <a href="http://chocotemplates.com"
-						target="_blank" title="The Sweetest CSS Templates WorldWide">ChocoTemplates.com</a></p>
+				<p> &copy; CINELLA <a href="" target="_blank" title=""></a></p>
 			</div>
 			<!-- end Footer -->
 		</div>

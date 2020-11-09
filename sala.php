@@ -61,13 +61,14 @@
           }
         }
       }
+	  alert(existe)
       return existe
 	}
 
 	function registrarAsistente(usuario)
 	{
 		let xhr = new XMLHttpRequest();
-	  		var ruta = 'https://proyectocinella.herokuapp.com/registroAsisitente';
+	  		var ruta = 'https://proyectocinella.herokuapp.com/registroAsistente';
 	  		let json = JSON.stringify({
 			usuario: usuario,
 			pelicula: getParametro('pelicula')
@@ -75,6 +76,7 @@
 		xhr.open("POST", ruta)
 	  	xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
 	  	xhr.send(json)
+		alert('Registrado')
 	}
 	
 	function apartarAsientos(id) {
@@ -91,6 +93,7 @@
 	  	xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
 	  	xhr.send(json)
 		registrarAsistente(sessionStorage.getItem('usuario'));
+		alert('apartado')
 	  	window.location.href = "./funcionesCliente.php"
 		}	
 		else

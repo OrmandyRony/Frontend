@@ -117,7 +117,7 @@
 				html += '<td>' + funciones[i].horario + '</td>'
 				html += '<td>' + funciones[i].disponible + '</td>'
 				if (funciones[i].disponible) {
-					html += `<td><a class="btn btn-primary" href="./sala.php?pelicula=${funciones[i].pelicula}" role="button">Asistir</a></td>`
+					html += `<td><a class="btn btn-primary" href="./sala.php?pelicula=${funciones[i].id}" role="button">Asistir</a></td>`
 				} else {
 					html += '<td> No disponible </td>'
 				}

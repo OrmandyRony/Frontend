@@ -157,7 +157,7 @@
 
 
 					html += `<td><center><button type="button" onclick="eliminarPelicula(${i})" class="btn btn-danger">Eliminar</button></center></td>`
-					html += `<td><center><a class="btn btn-primary" href="./editarPeliculas.php?pelicula=${peliculas[i].pelicula}" role="button">Editar</a></center></td>`
+					html += `<td><center><a class="btn btn-primary" href="./editarPeliculas.php?pelicula=${peliculas[i].id}" role="button">Editar</a></center></td>`
 					html += '<tr>'
 				}
 				html += '</tbody></table>'

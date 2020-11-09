@@ -124,11 +124,10 @@
 		xhr.send()
 		xhr.onreadystatechange = (e) => {
 			var peliculas = JSON.parse(xhr.responseText);
-			console.log(peliculas)
 			var html = ''
 			for (var i = 0; i < peliculas.length; i++) {
 				
-				if (peliculas[i].pelicula == getParametro("pelicula")) {
+				if (peliculas[i].id == getParametro("pelicula")) {
 					
 					html += '<div class="movie"><div class="movie-image">'
 					html += '<a href="#"><span class="play"><span class="name">' + peliculas[i].pelicula + '</span></span><img src="' + peliculas[i].url_imagen + '" alt="movie" /></a></div><div class="rating">'
@@ -155,7 +154,7 @@
 		console.log(resenas)
 		var mensajes= ""
 		for (var i = 0; i < resenas.length; i++) {
-				if (resenas[i].pelicula == getParametro("pelicula")) {
+				if (resenas[i].id == getParametro("pelicula")) {
 
 					mensajes += `<div id="left">
 						<form>
@@ -228,7 +227,7 @@
 			let json = JSON.stringify({
 				nombre: sessionStorage.getItem("usuario"),
 				comentario: document.getElementById("resena").value,
-				pelicula: getParametro("pelicula")
+				id: getParametro("pelicula")
 			})
 			xhr.open("POST", ruta)
 			xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')

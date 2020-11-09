@@ -122,7 +122,7 @@
 
       for(var i = 0; i < nombres.length; i++)
       {
-        html += "<option value="+ nombres[i].pelicula +">" + nombres[i].pelicula+"</option>"
+        html += "<option value="+ nombres[i].id +">" + nombres[i].pelicula+"</option>"
        
       }
       html += '</select>'

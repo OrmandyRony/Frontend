@@ -133,7 +133,7 @@
 
       for(var i = 0; i < nombres.length; i++)
       {
-        html += "<option value="+ nombres[i].id +">" + nombres[i].pelicula+"</option>"
+        html += "<option value="+ nombres[i].pelicula +">" + nombres[i].pelicula+"</option>"
        
       }
       html += '</select>'
@@ -148,7 +148,7 @@
         let xhr = new XMLHttpRequest();
 			var ruta= 'https://proyectocinella.herokuapp.com/editarFuncion';
 			let json = JSON.stringify({
-            id: getParametro("pelicula"),
+            sala: getParametro("pelicula"),
 			new_pelicula: document.getElementById("new_pelicula").value,
             new_sala: document.getElementById("sala").value,
             new_horario: document.getElementById("horario").value

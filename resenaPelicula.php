@@ -141,11 +141,11 @@ window.addEventListener("hashchange", function(event){
 		xhr.onreadystatechange = (e) => {
 			var peliculas = JSON.parse(xhr.responseText);
 			console.log(peliculas)
-			alert(getParametro("pelicula"))
+			alert(decode_utf8(getParametro("pelicula")))
 			var html = ''
 			for (var i = 0; i < peliculas.length; i++) {
 				
-				if (peliculas[i].pelicula == getParametro("pelicula")) {
+				if (peliculas[i].pelicula == decode_utf8(getParametro("pelicula"))) {
 					alert("entro")
 					html += '<div class="movie"><div class="movie-image">'
 					html += '<a href="#"><span class="play"><span class="name">' + peliculas[i].pelicula + '</span></span><img src="' + peliculas[i].url_imagen + '" alt="movie" /></a></div><div class="rating">'

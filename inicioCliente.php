@@ -28,13 +28,13 @@
 		
 <!-- Navigation -->
 <div id="navigation">
-	<ul>
-		<li><a class="active" href="inicioCliente.html">CARTELERA</a></li>
-		<li><a href="funcionesCliente.html">FUNCIONES</a></li>
-		<li><a href="perfilCliente.html">PERFIL</a></li>
-		<li><a href="index.html">CERRAR SESION</a></li>
-	</ul>
-</div>
+				<ul>
+					<li><a href="inicioCliente.php">CARTELERA</a></li>
+					<li><a href="funcionesCliente.php">FUNCIONES</a></li>
+					<li><a href="perfilCliente.php">PERFIL</a></li>
+					<li><a  onclick="cerrar()">CERRAR SESION</a></li>
+				</ul>
+			</div>
 <!-- end Navigation -->
 
 <!-- Sub-menu -->
@@ -106,11 +106,16 @@
 	  for(var i = 0; i < peliculas.length; i++)
 	  {
 		html += '<div class="movie"><div class="movie-image">'
-		html += '<a href="./resenasCliente.html?pelicula='+peliculas[i].pelicula+'"><span class="play"><span class="name">'+peliculas[i].pelicula+'</span></span><img src="'+peliculas[i].url_imagen+'" alt="movie" /></a></div><div class="rating">'
+		html += '<a href="./resenasCliente.php?pelicula='+peliculas[i].pelicula+'"><span class="play"><span class="name">'+peliculas[i].pelicula+'</span></span><img src="'+peliculas[i].url_imagen+'" alt="movie" /></a></div><div class="rating">'
 		html += '<p>Puntuacion:'+peliculas[i].puntuacion+'</p><div class=""><div class=""></div></div><span class="comments">12</span></div></div>'
 	  }
 	  
 	  document.getElementById("cartelera").innerHTML = html
+	}
+	function cerrar(){
+		sessionStorage.removeItem("usuario")
+		window.location.href = "./index.php"   
+
 	}
 </script>
 </body>

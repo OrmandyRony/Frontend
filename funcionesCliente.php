@@ -44,13 +44,14 @@
 		
 		<!-- Navigation -->
 		<div id="navigation">
-			<ul>
-				<li><a class="active" href="inicioCliente.html">CARTELERA</a></li>
-				<li><a href="funcionesCliente.html">FUNCIONES</a></li>
-				<li><a href="perfilCliente.html">PERFIL</a></li>
-				<li><a href="index.html">CERRAR SESION</a></li>
-			</ul>
-		</div>
+				<ul>
+					<li><a href="inicioCliente.php">CARTELERA</a></li>
+					<li><a class="active" href="resenasCliente.php">RESEÑAS</a></li>
+					<li><a href="funcionesCliente.php">FUNCIONES</a></li>
+					<li><a href="perfilCliente.php">PERFIL</a></li>
+					<li><a  onclick="cerrar()">CERRAR SESION</a></li>
+				</ul>
+			</div>
 		<!-- end Navigation -->
 		
 		<!-- Sub-menu -->
@@ -116,7 +117,7 @@
 				html += '<td>' + funciones[i].horario + '</td>'
 				html += '<td>' + funciones[i].disponible + '</td>'
 				if (funciones[i].disponible) {
-					html += `<td><a class="btn btn-primary" href="./sala.html?pelicula=${funciones[i].pelicula}" role="button">Asistir</a></td>`
+					html += `<td><a class="btn btn-primary" href="./sala.php?pelicula=${funciones[i].pelicula}" role="button">Asistir</a></td>`
 				} else {
 					html += '<td> No disponible </td>'
 				}
@@ -126,6 +127,12 @@
 
 			document.getElementById("tabla").innerHTML = html
 		}
+
+		function cerrar(){
+		sessionStorage.removeItem("usuario")
+		window.location.href = "./index.php"   
+
+	}
 </script>
 
 </body>

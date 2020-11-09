@@ -63,14 +63,15 @@
 		<!-- Navigation -->
 		<div id="navigation">
 			<ul>
-				<li><a href="inicio.html">CARGAR PELICULAS</a></li>
-				<li><a href="agregarFuncion.html">AGREGAR FUNCION</a></li>
-				<li><a href="resenas.html">RESEÑAS</a></li>
-				<li><a class="active" href="funciones.html">FUNCIONES</a></li>
-				<li><a href="usuarios.html">USUARIOS</a></li>
-				<li><a href="registrar">REGISTRAR USUARIO</a></li>
-			    <li><a href="perfil.html">PERFIL</a></li>
-			    <li><a href="index.html">CERRAR SESION</a></li>
+
+				<li><a  href="inicio.php">CARGAR PELICULAS</a></li>
+				<li><a class="active" href="agregarFuncion.php">AGREGAR FUNCION</a></li>
+				<li><a   href="resenas.php">RESEÑAS</a></li>
+				<li><a href="funciones.php">FUNCIONES</a></li>
+				<li><a href="usuarios.php">USUARIOS</a></li>
+				<li><a href="signupUsuario.php">REGISTRAR USUARIO</a></li>
+			    <li><a href="perfil.php">PERFIL</a></li>
+			    <li><a onclick="cerrar()">CERRAR SESION</a></li>
 			</ul>
 		</div>
 		<!-- end Navigation -->
@@ -134,7 +135,7 @@
 		html += '<td>'+funciones[i].disponible +'</td>'
 		if(funciones[i].disponible){
 		    html += `<td><center><button type="button" onclick="hola(${i})" class="btn btn-danger">Eliminar</button></center></td>`
-			html += `<td><center><a class="btn btn-primary" href="./editarFuncion.html?pelicula=${funciones[i].pelicula}" role="button">Editar</a></center></td>`
+			html += `<td><center><a class="btn btn-primary" href="./editarFuncion.php?pelicula=${funciones[i].pelicula}" role="button">Editar</a></center></td>`
 		}else {
 			html += '<td> No disponible </td>'
 		}
@@ -156,7 +157,12 @@
         xhr.send(json)
 
         alert("Funcion eliminada")
-		window.location.href = "./funciones.html"   
+		window.location.href = "./funciones.php"   
+	}
+	function cerrar(){
+		sessionStorage.removeItem("usuario")
+		window.location.href = "./index.php"   
+
 	}
 </script>
 

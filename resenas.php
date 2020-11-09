@@ -28,17 +28,18 @@
 		
 <!-- Navigation -->
 <div id="navigation">
-	<ul>
-		<li><a href="inicio.html">CARGAR PELICULAS</a></li>
-		<li><a href="agregarFuncion.html">AGREGAR FUNCION</a></li>
-		<li><a href="resenas.html">RESEÑAS</a></li>
-		<li><a href="funciones.html">FUNCIONES</a></li>
-		<li><a href="usuarios.html">USUARIOS</a></li>
-		<li><a href="registrar">REGISTRAR USUARIO</a></li>
-		<li><a class="active"  href="perfil.html">PERFIL</a></li>
-		<li><a href="index.html">CERRAR SESION</a></li>
-	</ul>
-</div>
+			<ul>
+
+				<li><a  href="inicio.php">CARGAR PELICULAS</a></li>
+				<li><a class="active" href="agregarFuncion.php">AGREGAR FUNCION</a></li>
+				<li><a   href="resenas.php">RESEÑAS</a></li>
+				<li><a href="funciones.php">FUNCIONES</a></li>
+				<li><a href="usuarios.php">USUARIOS</a></li>
+				<li><a href="signupUsuario.php">REGISTRAR USUARIO</a></li>
+			    <li><a href="perfil.php">PERFIL</a></li>
+			    <li><a onclick="cerrar()">CERRAR SESION</a></li>
+			</ul>
+		</div>
 <!-- end Navigation -->
 
 <!-- Sub-menu -->
@@ -47,11 +48,7 @@
 
 	</ul>
 	<div id="search">
-		<form action="home_submit" method="get" accept-charset="utf-8">
-			<label for="search-field">SEARCH</label>					
-			<input type="text" name="search field" value="Enter search here" id="search-field" title="Enter search here" class="blink search-field"  />
-			<input type="submit" value="GO!" class="search-button" />
-		</form>
+		
 	</div>
 </div>
 <!-- end Sub-Menu -->
@@ -120,11 +117,16 @@
 	  for(var i = 0; i < peliculas.length; i++)
 	  {
 		html += '<div class="movie"><div class="movie-image">'
-		html += '<a href="./resenaPelicula.html?pelicula='+peliculas[i].pelicula+'"><span class="play"><span class="name">'+peliculas[i].pelicula+'</span></span><img src="'+peliculas[i].url_imagen+'" alt="movie" /></a></div><div class="rating">'
+		html += '<a href="./resenaPelicula.php?pelicula='+peliculas[i].pelicula+'"><span class="play"><span class="name">'+peliculas[i].pelicula+'</span></span><img src="'+peliculas[i].url_imagen+'" alt="movie" /></a></div><div class="rating">'
 		html += '<p>Puntuacion:'+peliculas[i].puntuacion+'</p><div class=""><div class=""></div></div><span class="comments">12</span></div></div>'
 	  }
 	  
 	  document.getElementById("cartelera").innerHTML = html
+	}
+	function cerrar(){
+		sessionStorage.removeItem("usuario")
+		window.location.href = "./index.php"   
+
 	}
 </script>
 </body>

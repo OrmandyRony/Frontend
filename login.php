@@ -58,7 +58,7 @@
         </label>
         <input class="btn btn-primary btn-lg btn-block"  onclick="login()" value="login"/>
         
-        <a class="btn btn-info btn-lg btn-block"  id="signup_submit" name="registrarse" type="submit" href="signup.html">Registrarse</a>
+        <a class="btn btn-info btn-lg btn-block"  id="signup_submit" name="registrarse" type="submit" href="signup.php">Registrarse</a>
   
         
       </div>
@@ -86,13 +86,13 @@
             alert("Bienvenido!!")
           if(usuarios[i].tipo == "Administrador")
           {
-            window.location.href = "./inicio.html"
+            window.location.href = "./inicio.php"
             consulta = false
             break;
           }
           if(usuarios[i].tipo == "Cliente")
           {
-            window.location.href = "./inicioCliente.html"
+            window.location.href = "./inicioCliente.php"
             consulta = false
             break
           }

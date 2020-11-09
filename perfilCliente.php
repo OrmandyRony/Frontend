@@ -50,13 +50,14 @@
 		
 		<!-- Navigation -->
 		<div id="navigation">
-			<ul>
-				<li><a class="active" href="inicioCliente.html">CARTELERA</a></li>
-				<li><a href="funcionesCliente.html">FUNCIONES</a></li>
-				<li><a href="perfilCliente.html">PERFIL</a></li>
-				<li><a href="index.html">CERRAR SESION</a></li>
-			</ul>
-		</div>
+				<ul>
+					<li><a href="inicioCliente.php">CARTELERA</a></li>
+					<li><a class="active" href="resenasCliente.php">RESEÑAS</a></li>
+					<li><a href="funcionesCliente.php">FUNCIONES</a></li>
+					<li><a href="perfilCliente.php">PERFIL</a></li>
+					<li><a  onclick="cerrar()">CERRAR SESION</a></li>
+				</ul>
+			</div>
 		<!-- end Navigation -->
 		
 		<!-- Sub-menu -->
@@ -180,6 +181,11 @@
         document.getElementById("confirmar").value = "";
       }
     } 
+	function cerrar(){
+		sessionStorage.removeItem("usuario")
+		window.location.href = "./index.php"   
+
+	}
 	
   </script>
 <!-- end Shell -->

@@ -120,7 +120,7 @@
             xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
             xhr.send(json)
             alert("Usuario registrado")
-            window.location.href = "./login.html"
+            window.location.href = "./login.php"
           
           } else
           {

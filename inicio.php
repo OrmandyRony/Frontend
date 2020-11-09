@@ -62,17 +62,18 @@
 
 			<!-- Navigation -->
 			<div id="navigation">
-				<ul>
-					<li><a class="active" href="inicio.html">CARGAR PELICULAS</a></li>
-					<li><a href="agregarFuncion.html">AGREGAR FUNCION</a></li>
-					<li><a href="resenas.html">RESEÑAS</a></li>
-					<li><a href="funciones.html">FUNCIONES</a></li>
-					<li><a href="usuarios.html">USUARIOS</a></li>
-					<li><a href="registrar">REGISTRAR USUARIO</a></li>
-					<li><a href="perfil.html">PERFIL</a></li>
-					<li><a href="index.html">CERRAR SESION</a></li>
-				</ul>
-			</div>
+			<ul>
+
+				<li><a  href="inicio.php">CARGAR PELICULAS</a></li>
+				<li><a class="active" href="agregarFuncion.php">AGREGAR FUNCION</a></li>
+				<li><a   href="resenas.php">RESEÑAS</a></li>
+				<li><a href="funciones.php">FUNCIONES</a></li>
+				<li><a href="usuarios.php">USUARIOS</a></li>
+				<li><a href="signupUsuario.php">REGISTRAR USUARIO</a></li>
+			    <li><a href="perfil.php">PERFIL</a></li>
+			    <li><a onclick="cerrar()">CERRAR SESION</a></li>
+			</ul>
+		</div>
 			<!-- end Navigation -->
 
 			<!-- Sub-menu -->
@@ -156,7 +157,7 @@
 
 
 					html += `<td><center><button type="button" onclick="eliminarPelicula(${i})" class="btn btn-danger">Eliminar</button></center></td>`
-					html += `<td><center><a class="btn btn-primary" href="./editarPeliculas.html?pelicula=${peliculas[i].pelicula}" role="button">Editar</a></center></td>`
+					html += `<td><center><a class="btn btn-primary" href="./editarPeliculas.php?pelicula=${peliculas[i].pelicula}" role="button">Editar</a></center></td>`
 					html += '<tr>'
 				}
 				html += '</tbody></table>'
@@ -175,9 +176,14 @@
 				xhr.send(json)
 
 				alert("Pelicula eliminada")
-				window.location.href = "./inicio.html"
+				window.location.href = "./inicio.php"
 			}
 
+			function cerrar(){
+		sessionStorage.removeItem("usuario")
+		window.location.href = "./index.php"   
+
+	}
 	
 		</script>
 </body>

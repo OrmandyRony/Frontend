@@ -217,7 +217,7 @@
 		  
           pdf.save('Usuarios.pdf');
          
-        });
+        }
 
         
     }

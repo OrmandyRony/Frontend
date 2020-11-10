@@ -111,7 +111,6 @@
 	  xhr.send()
 	  xhr.onreadystatechange = (e) => {
 	  var peliculas = JSON.parse(xhr.responseText);
-	  console.log(peliculas)
 	  var html = ''
 
 	  for(var i = 0; i < peliculas.length; i++)

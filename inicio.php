@@ -161,7 +161,7 @@
 					html += '<tr>'
 				}
 				html += '</tbody></table>'
-				console.log(html)
+		
 				document.getElementById("tabla").innerHTML = html
 			}
 			function eliminarPelicula(id) {

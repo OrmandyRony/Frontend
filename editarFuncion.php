@@ -128,7 +128,6 @@
       xhr.send()
       xhr.onreadystatechange = (e) => {
       var nombres = JSON.parse(xhr.responseText);
-      console.log(nombres)
       var html = '<select class="form-control" name="" id="new_pelicula">'
 
       for(var i = 0; i < nombres.length; i++)

@@ -48,7 +48,6 @@
         xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
         xhr.send(json)
         alert("Pelicula editada")
-		console.log(json)
     }
 	function cerrar(){
 		sessionStorage.removeItem("usuario")

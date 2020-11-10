@@ -151,7 +151,6 @@
 		xhr.send()
 		xhr.onreadystatechange = (e) => {
 		var resenas = JSON.parse(xhr.responseText);
-		console.log(resenas)
 		var mensajes= ""
 		for (var i = 0; i < resenas.length; i++) {
 				if (resenas[i].id == getParametro("pelicula")) {

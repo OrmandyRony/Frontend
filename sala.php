@@ -188,8 +188,10 @@
 
 </body>
 <script>
-
-    let xhr = new XMLHttpRequest();
+metodo()
+function metodo()
+{
+	let xhr = new XMLHttpRequest();
     var ruta = 'https://proyectocinella.herokuapp.com/obtenerSala?pelicula=' + getParametro("pelicula");
     xhr.open('GET', ruta);
     xhr.send()
@@ -202,7 +204,6 @@
       html += '<tbody>'
       var fila = 1;
       for (var i = 0; i < asientos.length; i++) {
-		  alert("entro")
         var x = i + 1;
         if (x == 1) {
           html += '<tr><td>' + fila + '</td>';
@@ -221,8 +222,9 @@
       }
       html += '</tbody></table>'
       document.getElementById("tabla").innerHTML = html;
-	  console.log(html)
 
+}
+    
     }
 	function cerrar(){
 		sessionStorage.removeItem("usuario")
@@ -232,6 +234,7 @@
 	function nombre(sala){
 		let xhr = new XMLHttpRequest();
 		var ruta = 'https://proyectocinella.herokuapp.com/obtenerFunciones';
+		nombre = ""
 		xhr.open('GET', ruta);
 		xhr.send()
 		xhr.onreadystatechange = (e) => {
@@ -240,11 +243,12 @@
 				if(funciones[i].sala == sala)
 				{
 					nombre = funciones[i].pelicula 
-					return nombre
+					
 				}
 			}
 		
 		}
+		return nombre
 	}
 
 	

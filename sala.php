@@ -197,7 +197,7 @@ function metodo()
     xhr.onreadystatechange = (e) => {
       var asientos = JSON.parse(xhr.responseText);
 
-      var html = "<h1>"  "</h1>";
+      var html = "<h1></h1>";
       html += '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"><thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead>'
 
       html += '<tbody>'
@@ -230,27 +230,6 @@ function metodo()
 		window.location.href = "./index.php"   
 	}
 
-	function nombre(sala){
-		let xhr = new XMLHttpRequest();
-		var ruta = 'https://proyectocinella.herokuapp.com/obtenerFunciones';
-		nombre = ""
-		xhr.open('GET', ruta);
-		xhr.send()
-		xhr.onreadystatechange = (e) => {
-			var funciones = JSON.parse(xhr.responseText);
-			for (var i = 0; i < funciones.length; i++) {
-				if(funciones[i].sala == sala)
-				{        
-					nombre = funciones[i].pelicula 
-					
-				}
-			}
-		
-		}
-		return nombre
-	}
-
-	
 
 </script>
 

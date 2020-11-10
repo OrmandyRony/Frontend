@@ -57,9 +57,11 @@
         { 
           if(asistentes[i].usuario == usuario && asistentes[i].pelicula == sala){
             existe = false
+			alert("Ya se aparto")
           }
         }
       }
+	  
       return existe
 	}
 
@@ -78,7 +80,7 @@
 	}
 	
 	function apartarAsientos(id) {
-		alert(sessionStorage.getItem('usuario'))                     
+	                 
 		if(registroAsistentes(sessionStorage.getItem('usuario'), getParametro('pelicula')))
 		{
 			let xhr = new XMLHttpRequest();

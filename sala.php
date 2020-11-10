@@ -196,12 +196,13 @@
     xhr.onreadystatechange = (e) => {
       var asientos = JSON.parse(xhr.responseText);
 
-      var html = "<h1>" + getParametro("pelicula") + "</h1>";
+      var html = "<h1>" + nombre() + "</h1>";
       html += '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"><thead><tr><th></th><th>A</th><th>B</th><th>C</th></tr></thead>'
 
       html += '<tbody>'
       var fila = 1;
       for (var i = 0; i < asientos.length; i++) {
+		  alert(entro)
         var x = i + 1;
         if (x == 1) {
           html += '<tr><td>' + fila + '</td>';
@@ -224,8 +225,27 @@
 	function cerrar(){
 		sessionStorage.removeItem("usuario")
 		window.location.href = "./index.php"   
-		
 	}
+
+	function nombre(){
+		let xhr = new XMLHttpRequest();
+		var ruta = 'https://proyectocinella.herokuapp.com/obtenerFunciones';
+		xhr.open('GET', ruta);
+		xhr.send()
+		xhr.onreadystatechange = (e) => {
+			var funciones = JSON.parse(xhr.responseText);
+			for (var i = 0; i < funciones.length; i++) {
+				if(funciones[i].sala == getParametro("pelicula"))
+				{
+					nombre = funciones[i].pelicula 
+					return nombre
+				}
+			}
+		
+		}
+	}
+
+	
 
 </script>
 

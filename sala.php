@@ -45,32 +45,6 @@
 	  return (window.location.search.match(new RegExp('[?&]' + pelicula + '=([^&]+)')) || [, null])[1];
 	}
 
-	function apartarAsientos(id) {
-	                 
-					 if(registroAsistentes(sessionStorage.getItem('usuario'), getParametro('pelicula')))
-					 {
-						 let xhr = new XMLHttpRequest();
-						   var ruta = 'https://proyectocinella.herokuapp.com/apartarAsientos';
-						   let json = JSON.stringify({
-						 sala: getParametro("pelicula"),
-						 identificador: id
-					   })
-					 
-					   xhr.open("POST", ruta)
-					   xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
-					   xhr.send(json)
-					   registrarAsistente(sessionStorage.getItem('usuario'));
-					   alert('Apartado')
-					   window.location.href = "./funcionesCliente.php"
-					 }	
-					 else
-					 {
-						 alert("Usted ya esta registrado en esta funcion")
-					 }
-			 
-			 
-				 
-				 }
 	
 	function registroAsistentes(usuario, sala){
 		let xhr = new XMLHttpRequest();
@@ -99,6 +73,34 @@
 	
       
 	}
+
+	function apartarAsientos(id) {
+	                 
+					 if(registroAsistentes(sessionStorage.getItem('usuario'), getParametro('pelicula')))
+					 {
+						 let xhr = new XMLHttpRequest();
+						   var ruta = 'https://proyectocinella.herokuapp.com/apartarAsientos';
+						   let json = JSON.stringify({
+						 sala: getParametro("pelicula"),
+						 identificador: id
+					   })
+					 
+					   xhr.open("POST", ruta)
+					   xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
+					   xhr.send(json)
+					   registrarAsistente(sessionStorage.getItem('usuario'));
+					   alert('Apartado')
+					   window.location.href = "./funcionesCliente.php"
+					 }	
+					 else if(!(registroAsistentes(sessionStorage.getItem('usuario'), getParametro('pelicula'))))
+					 {
+						 alert("Usted ya esta registrado en esta funcion")
+					 }
+			 
+			 
+				 
+				 }
+	
 
 	function registrarAsistente(usuario)
 	{

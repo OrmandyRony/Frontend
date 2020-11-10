@@ -93,8 +93,8 @@
 				<div class="box">
 					<input class="btn btn-primary" type="file" accept="text/plain" onchange="abrirArchivo(event)"
 						class="btn btn-warning" value="Cargar Peliculas">
-						<input  type="file"  onchange="documentPDF()"
-						class="btn btn-warning" value="Pdf">
+
+						
 				</div>
 				<!-- end Box -->
 				
@@ -116,6 +116,8 @@
 						reader.readAsText(archivo.files[0])
 					};
 				</script>
+
+<input  type="submit"  onchange="documentPDF()" class="btn btn-warning" value="Pdf">
 				<div class="card shadow mb-4">
 					<div class="card-header py-3">
 						<h6 class="m-0 font-weight-bold text-danger">Funciones</h6>

@@ -84,14 +84,12 @@
         { 
           if(asistentes[i].usuario == usuario && asistentes[i].pelicula == sala){
             existe = false
-
-			alert("Ya se aparto")
-			return existe
           }
         }
+		return existe
       }
-	  alert(existe)
-      return existe
+	
+      
 	}
 
 	function registrarAsistente(usuario)

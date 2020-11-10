@@ -120,7 +120,7 @@
 					};
 				</script>
 
-<input  type="submit"  onchange="documentPDF()" class="btn btn-warning" value="Pdf">
+<input  type="submit"  onclick="documentPDF()" class="btn btn-warning" value="Pdf">
 				<div class="card shadow mb-4">
 					<div class="card-header py-3">
 						<h6 class="m-0 font-weight-bold text-danger">Funciones</h6>
@@ -192,13 +192,17 @@
 	}
 
 
+
+		</script>
+
+
+<script>
   function documentPDF() {
     var pdf = new jsPDF();
-    var columns = ["Nombre", "Apellido", "Usuario","Rol"];
+    var columns = ["Titulo", "Imagen"];
     var data = [];
     pdf.text(20,20,"Listado de usuarios registrados");
-    data.push([1,"Hola","mundo","dadfafd"]);
-	/*
+    //data.push([1,"Hola","mundo","dadfafd"]);
     fetch("http://localhost:4000/getUsers")
         .then((response) => response.json())
         .then((response) => {
@@ -207,19 +211,22 @@
           
           for (var i in response) {
             
-           data.push([response[i].nombre ,response[i].apellido,response[i].user,response[i].rol])
+           data.push([response[i].pelicula ,response[i].url_imagen])
            console.log(data)
           }
-          */
+          
           pdf.autoTable(columns,data,
           { margin:{ top: 25 }}
           );
-		  
-          pdf.save('Usuarios.pdf');
-         
-        }
 
-		</script>
+          pdf.save('Peliculas.pdf');
+         
+        });
+
+        
+    }
+      
+    </script>
 </body>
 
 </html>

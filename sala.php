@@ -59,8 +59,8 @@
 					   xhr.open("POST", ruta)
 					   xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
 					   xhr.send(json)
-					 registrarAsistente(sessionStorage.getItem('usuario'));
-					 alert('Apartado')
+					   registrarAsistente(sessionStorage.getItem('usuario'));
+					   alert('Apartado')
 					   window.location.href = "./funcionesCliente.php"
 					 }	
 					 else
@@ -77,13 +77,19 @@
         var ruta = 'https://proyectocinella.herokuapp.com/obtenerRegistro';
         xhr.open('GET', ruta);
         xhr.send()
-        var existe = true
+        
         xhr.onreadystatechange = (e) => {
         var asistentes = JSON.parse(xhr.responseText)
+		var existe = true
         for(var i = 0; i < asistentes.length; i++)
         { 
-          if(asistentes[i].usuario == usuario && asistentes[i].pelicula == sala){
-            existe = false
+          if(asistentes[i].usuario == usuario){
+			  alert(asistentes[i].pelicula)
+			  if(asistentes[i].pelicula == sala))
+			  {
+				existe = false
+			  }
+            
           }
         }
 		return existe

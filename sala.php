@@ -85,7 +85,7 @@
         { 
           if(asistentes[i].usuario == usuario){
 			  alert(asistentes[i].pelicula)
-			  if(asistentes[i].pelicula == sala))
+			  if(asistentes[i].pelicula == sala)
 			  {
 				existe = false
 			  }

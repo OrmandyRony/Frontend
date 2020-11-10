@@ -150,7 +150,7 @@
     var columns = ["Nombre", "Usuario", "Tipo"];
     var data = [];
     pdf.text(20,20,"Listado de usuarios");
-    //data.push([1,"Hola","mundo","dadfafd"]);
+   
     fetch("https://proyectocinella.herokuapp.com/obtenerUsuarios")
         .then((response) => response.json())
         .then((response) => {

@@ -25,6 +25,8 @@
 	<![endif]-->
 	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 	<script type="text/javascript" src="js/jquery-func.js"></script>
+	<script type="text/javascript" src="js/jspdf.plugin.autotable.js"></script>
+    <script type="text/javascript" src="js/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>
 <!-- Shell -->
@@ -75,7 +77,7 @@
 	<!-- end Header -->
 	
 	<!-- Main -->
-	<input  type="submit"  onclick="documentPDF()" class="btn btn-warning" value="Generar Pdf">
+
 
 	<!-- DataTales Example -->
 	<div class="card shadow mb-4">

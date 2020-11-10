@@ -37,25 +37,7 @@
     <script type="text/javascript" src="js/jspdf.plugin.autotable.js"></script>
     <script type="text/javascript" src="js/jspdf.plugin.autotable.min.js"></script>
 </head>
-<script>
-		function generar() {
-				var pdf = new jsPDF();
-				pdf.text(20, 20, "Mostrando una Tabla con JsPDF y el Plugin AutoTable");
 
-				var columns = ["Id", "Nombre", "Email", "Pais"];
-				var data = [
-					[1, "Hola", "hola@gmail.com", "Mexico"],
-					[2, "Hello", "hello@gmail.com", "Estados Unidos"],
-					[3, "Otro", "otro@gmail.com", "Otro"]];
-
-				pdf.autoTable(columns, data,
-					{ margin: { top: 25 } }
-				);
-
-				pdf.save('mipdf.pdf');
-				
-			}
-</script>
 <body>
 	<!-- Shell -->
 	<div id="shell">

@@ -108,7 +108,7 @@
 		xhr.onreadystatechange = (e) => {
 			var funciones = JSON.parse(xhr.responseText);
 			console.log(funciones)
-			var html = '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"><thead><tr><th>Nombre</th><th>Horario</th><th>Sala</th><th>Disponible</th><th>Eliminar</th><th>Editar</th></tr></thead>'
+			var html = '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"><thead><tr><th>Nombre</th><th>Horario</th><th>Sala</th><th>Disponible</th><th>Eliminar</th></tr></thead>'
 
 			html += '<tbody>'
 			for (var i = 0; i < funciones.length; i++) {

@@ -75,6 +75,8 @@
 	<!-- end Header -->
 	
 	<!-- Main -->
+	<input  type="submit"  onclick="documentPDF()" class="btn btn-warning" value="Generar Pdf">
+
 	<!-- DataTales Example -->
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
@@ -143,7 +145,7 @@
     var pdf = new jsPDF();
     var columns = ["Nombre", "Usuario", "Tipo"];
     var data = [];
-    pdf.text(20,20,"Listado de peliculas");
+    pdf.text(20,20,"Listado de usuarios");
     //data.push([1,"Hola","mundo","dadfafd"]);
     fetch("https://proyectocinella.herokuapp.com/obtenerUsuarios")
         .then((response) => response.json())

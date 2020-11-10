@@ -85,7 +85,7 @@
 			let xhr = new XMLHttpRequest();
 	  		var ruta = 'https://proyectocinella.herokuapp.com/apartarAsientos';
 	  		let json = JSON.stringify({
-			pelicula: getParametro("pelicula"),
+			sala: getParametro("pelicula"),
 			identificador: id
 	  	})
 		

@@ -108,16 +108,17 @@
 		xhr.onreadystatechange = (e) => {
 			var funciones = JSON.parse(xhr.responseText);
 			console.log(funciones)
-			var html = '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"><thead><tr><th>Nombre</th><th>Horario</th><th>Disponible</th></tr></thead>'
+			var html = '<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0"><thead><tr><th>Nombre</th><th>Horario</th><th>Sala</th><th>Disponible</th><th>Eliminar</th><th>Editar</th></tr></thead>'
 
 			html += '<tbody>'
 			for (var i = 0; i < funciones.length; i++) {
 				html += '<tr>'
 				html += '<td>' + funciones[i].pelicula + '</td>'
 				html += '<td>' + funciones[i].horario + '</td>'
+				html += '<td>'+funciones[i].sala +'</td>'
 				html += '<td>' + funciones[i].disponible + '</td>'
 				if (funciones[i].disponible) {
-					html += `<td><a class="btn btn-primary" href="./sala.php?pelicula=${funciones[i].id}" role="button">Asistir</a></td>`
+					html += `<td><a class="btn btn-primary" href="./sala.php?pelicula=${funciones[i].sala}" role="button">Asistir</a></td>`
 				} else {
 					html += '<td> No disponible </td>'
 				}

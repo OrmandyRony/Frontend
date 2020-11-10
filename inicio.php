@@ -199,9 +199,9 @@
 <script>
   function documentPDF() {
     var pdf = new jsPDF();
-    var columns = ["Titulo", "Imagen"];
+    var columns = ["Titulo", "Imagen", "Puntuación", "Duracion", "Sinopsis"];
     var data = [];
-    pdf.text(20,20,"Listado de usuarios registrados");
+    pdf.text(20,20,"Listado de usuarios peliculas");
     //data.push([1,"Hola","mundo","dadfafd"]);
     fetch("https://proyectocinella.herokuapp.com/obtenerPeliculas")
         .then((response) => response.json())
@@ -211,7 +211,7 @@
           
           for (var i in response) {
             
-           data.push([response[i].pelicula ,response[i].url_imagen])
+           data.push([response[i].pelicula ,response[i].url_imagen, response[i].puntuacion, response[i].duracion, response[i].sinopsis ])
            console.log(data)
           }
           

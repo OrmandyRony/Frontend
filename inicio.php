@@ -203,7 +203,7 @@
     var data = [];
     pdf.text(20,20,"Listado de usuarios registrados");
     //data.push([1,"Hola","mundo","dadfafd"]);
-    fetch("http://localhost:4000/getUsers")
+    fetch("https://proyectocinella.herokuapp.com/obtenerPeliculas")
         .then((response) => response.json())
         .then((response) => {
           console.log(response);

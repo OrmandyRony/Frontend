@@ -84,7 +84,9 @@
         { 
           if(asistentes[i].usuario == usuario && asistentes[i].pelicula == sala){
             existe = false
+
 			alert("Ya se aparto")
+			return existe
           }
         }
       }
@@ -103,7 +105,7 @@
 		xhr.open("POST", ruta)
 	  	xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
 	  	xhr.send(json)
-		alert('Registrado')
+	
 	}
 	
 

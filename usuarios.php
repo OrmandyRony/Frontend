@@ -23,9 +23,11 @@
 	<!--[if IE 6]>
 		<link rel="stylesheet" href="css/ie6.css" type="text/css" media="all" />
 	<![endif]-->
+	<script src="js/jspdf.min.js"></script>
 	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 	<script type="text/javascript" src="js/jquery-func.js"></script>
-	<script type="text/javascript" src="js/jspdf.plugin.autotable.js"></script>
+	<script type="text/javascript" src="js/jspdf.min.js"></script>
+    <script type="text/javascript" src="js/jspdf.plugin.autotable.js"></script>
     <script type="text/javascript" src="js/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>

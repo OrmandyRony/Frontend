@@ -45,7 +45,7 @@
 	  return (window.location.search.match(new RegExp('[?&]' + pelicula + '=([^&]+)')) || [, null])[1];
 	}
 	
-	function registroAsistentes(usuario){
+	function registroAsistentes(usuario, sala){
 		let xhr = new XMLHttpRequest();
         var ruta = 'https://proyectocinella.herokuapp.com/obtenerRegistro';
         xhr.open('GET', ruta);
@@ -55,9 +55,8 @@
         var asistentes = JSON.parse(xhr.responseText)
         for(var i = 0; i < asistentes.length; i++)
         { 
-          if(asistentes[i].usuario == usuario){
+          if(asistentes[i].usuario == usuario && asistentes[i].pelicula == sala){
             existe = false
-            break
           }
         }
       }
@@ -79,7 +78,7 @@
 	}
 	
 	function apartarAsientos(id) {
-		if(registroAsistentes(sessionStorage.getItem('usuario')))
+		if(registroAsistentes(sessionStorage.getItem('usuario'), getParametro(pelicula)))
 		{
 			let xhr = new XMLHttpRequest();
 	  		var ruta = 'https://proyectocinella.herokuapp.com/apartarAsientos';
@@ -92,7 +91,7 @@
 	  	xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8')
 	  	xhr.send(json)
 		registrarAsistente(sessionStorage.getItem('usuario'));
-		alert('apartado')
+		alert('Apartado')
 	  	window.location.href = "./funcionesCliente.php"
 		}	
 		else

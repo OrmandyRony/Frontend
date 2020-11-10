@@ -76,7 +76,7 @@
 
 	function apartarAsientos(id) {
 	                 
-					 if(registroAsistentes(sessionStorage.getItem('usuario'), getParametro('pelicula')))
+					 if(true)
 					 {
 						 let xhr = new XMLHttpRequest();
 						   var ruta = 'https://proyectocinella.herokuapp.com/apartarAsientos';

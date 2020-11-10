@@ -78,6 +78,7 @@
 	}
 	
 	function apartarAsientos(id) {
+		alert(sessionStorage.getItem('usuario'))                     
 		if(registroAsistentes(sessionStorage.getItem('usuario'), getParametro(pelicula)))
 		{
 			let xhr = new XMLHttpRequest();

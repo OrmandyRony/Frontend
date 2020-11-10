@@ -64,11 +64,8 @@
 		
 			</ul>
 			<div id="search">
-				<form action="home_submit" method="get" accept-charset="utf-8">
-					<label for="search-field">SEARCH</label>					
-					<input type="text" name="search field" value="Enter search here" id="search-field" title="Enter search here" class="blink search-field"  />
-					<input type="submit" value="GO!" class="search-button" />
-				</form>
+				
+<input  type="submit"  onclick="documentPDF()" class="btn btn-warning" value="Generar Pdf">
 			</div>
 		</div>
 		<!-- end Sub-Menu -->
@@ -141,5 +138,36 @@
 
 </script>
 
+<script>
+  function documentPDF() {
+    var pdf = new jsPDF();
+    var columns = ["Nombre", "Usuario", "Tipo"];
+    var data = [];
+    pdf.text(20,20,"Listado de peliculas");
+    //data.push([1,"Hola","mundo","dadfafd"]);
+    fetch("https://proyectocinella.herokuapp.com/obtenerUsuarios")
+        .then((response) => response.json())
+        .then((response) => {
+          console.log(response);
+          
+          
+          for (var i in response) {
+            
+           data.push([response[i].nombre ,response[i].usuario, response[i].tipo ])
+           console.log(data)
+          }
+          
+          pdf.autoTable(columns,data,
+          { margin:{ top: 25 }}
+          );
+
+          pdf.save('Usuarios.pdf');
+         
+        });
+
+        
+    }
+      
+    </script>
 </body>
 </html>

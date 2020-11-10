@@ -202,7 +202,7 @@
       html += '<tbody>'
       var fila = 1;
       for (var i = 0; i < asientos.length; i++) {
-		  alert(entro)
+		  alert("entro")
         var x = i + 1;
         if (x == 1) {
           html += '<tr><td>' + fila + '</td>';
